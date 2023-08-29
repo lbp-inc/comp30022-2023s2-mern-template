@@ -224,7 +224,7 @@ That's it! You've successfully configured both front-end and back-end servers
 1. (For example) Clone this repository
 2. Navigate into the project directory (not the root of the repository)
 ```
-cd lbp-booking/webapp # Or equivalent
+cd mern-template/webapp # Or equivalent
 ```
 *(To check if you are in the right directory, type `ls` and check if `package.json` is present)*
 
