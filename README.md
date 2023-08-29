@@ -222,7 +222,10 @@ That's it! You've successfully configured both front-end and back-end servers
 ## To Set Up for an Existing Project
 ### Install Node.js Dependencies
 1. (For example) Clone this repository
-2. Navigate into the project directory (not the root of the repository)
+> [!NOTE]
+> Don't forget to switch to `template` branch for the sample code<br>
+> I.e. `git checkout template`
+3. Navigate into the project directory (not the root of the repository)
 ```
 cd lbp-booking/webapp # Or equivalent
 ```
