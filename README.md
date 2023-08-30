@@ -29,6 +29,7 @@ This is the template branch for Long Beach Place website development envinronmen
 - [Install Node.js](#install-nodejs)
 - [To Create a New Project](#to-create-a-new-project2)
 - [To Set up for an Existing Project](#to-set-up-for-an-existing-project)
+- [Test the Front-end and Back-end Server at the Same Time](#test-the-front-end-and-back-end-server-at-the-same-time)
 - [Troubleshoot](#troubleshoot)
 
 ## Install Node.js
@@ -206,18 +207,7 @@ function App() {
 export default App;
 ```
 
-### Test the Front-end and Back-end Server at the Same Time
-Start the front-end server (and the back-end if you accidentally closed it)
-```
-npm start run # Under [PRPJECT_NAME]/
-```
-On [localhost:3001/helloworld](http://localhost:3001/helloworld), you should see:
-```
-       A Test React Application
-Message from back-end server: HelloWorld
-```
-
-That's it! You've successfully configured both front-end and back-end servers
+Finally, you may test your environment by following the instructions in [this section](#test-the-front-end-and-back-end-server-at-the-same-time)
 
 ## To Set Up for an Existing Project
 ### Install Node.js Dependencies
@@ -240,10 +230,39 @@ npm install
 That's it! You should be able to run the project<br>
 Test the project by following the instructions in [this section](#test-the-front-end-and-back-end-server-at-the-same-time)
 
+## Test the Front-end and Back-end Server at the Same Time
+### Start the Back-end Server
+> [!NOTE]
+> Skip this part if you didn't close your back-end server
+
+Under `[PROJECT_NAME]/[BACK_END_FOLDER]/` e.g. `mern-template/webapp/api`
+```
+node api.mjs
+```
+You should see
+```
+Server is up on localhost:3001
+```
+
+### Start the Front-end Server
+Open a new terminal window, <br>
+under `[PROJECT_NAME]/` e.g. `mern-template/webapp`
+```
+npm start run
+```
+
+On [localhost:3001/helloworld](http://localhost:3001/helloworld), you should see:
+```
+       A Test React Application
+Message from back-end server: HelloWorld
+```
+
+That's it! You've successfully configured both front-end and back-end servers
+
 ## Troubleshoot
 ### `npm ERR! enoent ENOENT: no such file or directory, lstat '~\AppData\Roaming\npm'`
 #### Description
-The directory for installing Node packages cannot be found.<br>
+The directory for installing Node packages cannot be found.
 #### Solution
 Create the directory manually by either using GUI or using command (may need elevated permission).
 
@@ -253,5 +272,26 @@ Your node modules are not installed correctly.
 #### Solution
 Please ensure you are in the project directory, not the root of the repository, and re-excute section `4. Install React dependencies automatically` from above.
 
-[^1]: *Written by Stephen Zhang 28 Aug 2023 | Last Revised on 29 Aug*
+### `Uncaught runtime errors`
+```
+ERROR
+Failed to fetch
+TypeError: Failed to fetch
+    at getHelloWorld (http://localhost:3000/static/js/bundle.js:32:30)
+    at http://localhost:3000/static/js/bundle.js:39:5
+    at commitHookEffectListMount (http://localhost:3000/static/js/bundle.js:27262:30)
+    at commitPassiveMountOnFiber (http://localhost:3000/static/js/bundle.js:28755:17)
+    at commitPassiveMountEffects_complete (http://localhost:3000/static/js/bundle.js:28727:13)
+    at commitPassiveMountEffects_begin (http://localhost:3000/static/js/bundle.js:28717:11)
+    at commitPassiveMountEffects (http://localhost:3000/static/js/bundle.js:28707:7)
+    at flushPassiveEffectsImpl (http://localhost:3000/static/js/bundle.js:30592:7)
+    at flushPassiveEffects (http://localhost:3000/static/js/bundle.js:30544:18)
+    at http://localhost:3000/static/js/bundle.js:30359:13
+```
+#### Description
+Your back-end server is not up.
+#### Solution
+Follow the instruction [here](#start-the-back-end-server) to start up your back-end server.
+
+[^1]: *Written by Stephen Zhang 28 Aug 2023 | Last Revised on 30 Aug*
 [^2]: <a href=https://www.mongodb.com/languages/mern-stack-tutorial>MERN Stack Tutorial - MongoDB</a>
